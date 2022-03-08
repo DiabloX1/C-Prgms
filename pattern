@@ -1,0 +1,47 @@
+//Program to print the pattern of numbers in the form of a pyramid
+
+//Input: The number of rows of the pyramid pattern
+//Output: The natural numbers from 1 incremented upto the value according to the row number
+
+/*Algorithm
+  -Start
+  -Define all the variables required(loop variables,rows,number variable and space variable)
+  -Input the number of rows from user
+  -Set number of blank spaces to number of rows-1
+  -Define the outermost row loop(i)
+  -Define the loop for blank spaces
+  -Define the loop for printing the numbers incrementing the number variable(n) each time after execution
+  -Print a next line statement before exiting the outermost loop
+  -Decrement the value of number of spaces variable(s)
+  -End
+*/
+
+/*Solution Alternatives
+  -Instead of looping we can form a string of spaces and print the string for the spaces in the beginning
+  -We can use while loop instead of for loop for printing the pyramid
+  -We can use do while loop instead of for loop for printing the pyramid
+  -We can use decrement operator "--" for s instead of "-="
+*/
+#include <stdio.h>
+int main()
+{
+    //variable initializations
+    int i,j,k,s,n=1,r;
+    printf("ENTER NO OF ROWS:");   //prompt for user to enter value
+    scanf("%d",&r);                //inputing number of rows from user
+    s=r-1;                         //computing number of spaces for 1st row
+    char c=' ';
+    for(i=1;i<=r;i++)              //outermost row loop
+    {
+        for(k=1;k<=s;k++)          //loop for prnting initial blank spaces for each row
+        {
+            printf("%c",c);
+        }
+        for(j=1;j<=i;j++)          //loop printing the numbers in the pyramid
+        {
+            printf("%d ",n++);     //incrementing the value of n each time it is printed
+        }
+        printf("\n");              //proceeds to next line after row is complete
+        s-=1;                      //decrementing the number of blank spaces after each row
+    }
+}
